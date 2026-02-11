@@ -1,6 +1,6 @@
 {
   "name": "skmr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
@@ -14,7 +14,15 @@
     "dev": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "skills",
+    "ai",
+    "agent",
+    "cli",
+    "skill-manager",
+    "claude-code",
+    "cursor"
+  ],
   "homepage": "https://github.com/MinweiShen/skill-manager",
   "author": "Minwei Shen",
   "license": "MIT",
