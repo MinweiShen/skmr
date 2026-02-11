@@ -1,6 +1,24 @@
 # skmr
 
-A CLI tool to manage AI agent skills using a `skills.json` manifest file. Think of it as `package.json` for [skills](https://skills.sh/).
+**`npm` for AI agent skills.** Manage, share, and sync your AI coding agent skills across tools and teams with a single manifest file.
+
+Just like `package.json` tracks your npm dependencies, `skills.json` tracks your AI skills. Add a skill once, install everywhere.
+
+```bash
+# Add a skill - just like npm install
+skmr add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices -a claude-code -a cursor -p
+
+# Set up a new machine in seconds - just like npm install
+skmr install
+```
+
+## Why skmr?
+
+- **Declarative skill management** - Track all your AI skills in a single `skills.json` file, just like `package.json`
+- **One command setup** - Clone a repo, run `skmr install`, and every team member gets the same skills
+- **Multi-agent support** - Install skills to Claude Code, Cursor, Windsurf, Copilot, and 15+ other agents at once
+- **Parallel installs** - All skills install concurrently, not one at a time
+- **Zero dependencies** - Lightweight wrapper with no runtime deps
 
 ## Install
 
@@ -16,13 +34,13 @@ npx skmr <command>
 
 ## Usage
 
-### Add a skill
+### `skmr add` - Add a skill
 
 ```bash
 skmr add <source> --skill <name> -a <agent> [-a <agent>...] [-g|-p]
 ```
 
-The `-a` flag is required and repeatable. This wraps `npx skills add` and updates your `skills.json`.
+Installs the skill via [`skills`](https://skills.sh/) and saves it to `skills.json` - just like `npm install --save`.
 
 ```bash
 # Add a skill for claude-code and cursor, project-level
@@ -32,19 +50,21 @@ skmr add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-p
 skmr add https://github.com/anthropics/skills --skill skill-creator -a claude-code -g
 ```
 
-### Install all skills
+The `-a` flag is required. Run without it to see all available agents.
+
+### `skmr install` - Install all skills
 
 ```bash
-# Install from ./skills.json
+# Install from ./skills.json - just like npm install
 skmr install
 
 # Install from a custom path
 skmr install -c path/to/skills.json
 ```
 
-Reads `skills.json` and installs all skills in parallel.
+Reads `skills.json` and installs all skills in parallel. Share your `skills.json` with your team and everyone gets the same setup.
 
-### Help
+### `skmr help`
 
 ```bash
 skmr help
@@ -53,7 +73,7 @@ skmr -h
 
 ## skills.json
 
-The `skills.json` file tracks your installed skills:
+Your skill manifest. Commit it to your repo and share with your team.
 
 ```json
 {
@@ -70,13 +90,12 @@ The `skills.json` file tracks your installed skills:
 }
 ```
 
-| Field | Maps to |
-|-------|---------|
-| `source` | `<source>` positional arg |
-| `name` | `--skill <name>` |
-| `agents` | `--agent <agent1> <agent2>` |
-| `location: "global"` | `-g` |
-| `location: "project"` | (default) |
+| Field | Description |
+|-------|-------------|
+| `source` | GitHub repo URL or shorthand |
+| `name` | Skill name to install |
+| `agents` | Target AI agents |
+| `location` | `"project"` (default) or `"global"` |
 
 ## Supported Agents
 
