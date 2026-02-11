@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.ttadk/
+.claude/
+skills.json
+specs/
+erd.md
+.mcp.json
+skills/

@@ -1,0 +1,26 @@
+{
+  "name": "skmr",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "skmr": "dist/bin.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/MinweiShen/skill-manager",
+  "author": "Minwei Shen",
+  "license": "MIT",
+  "description": "A cli tool to manage your AI skills with skills.json",
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "typescript": "^5.0.0"
+  }
+}
