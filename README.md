@@ -71,6 +71,44 @@ skmr help
 skmr -h
 ```
 
+### Additional Commands
+
+`skmr` also supports these additional commands that are inherited from the underlying [`skills`](https://skills.sh/) command:
+
+| Command | Description |
+|---------|-------------|
+| `skmr list` | List all installed skills |
+| `skmr find <query>` | Search for skills by name or description |
+| `skmr remove <skill>` | Remove a skill |
+| `skmr check` | Check for skill updates |
+| `skmr update [skill]` | Update skills to latest versions |
+| `skmr init` | Initialize a new skills.json file |
+
+#### Examples
+
+```bash
+# List all installed skills
+skmr list
+
+# Find skills related to React
+skmr find react
+
+# Remove a skill
+skmr remove vercel-react-best-practices
+
+# Check for updates
+skmr check
+
+# Update all skills
+skmr update
+
+# Update a specific skill
+skmr update vercel-react-best-practices
+
+# Initialize a new skills.json file
+skmr init
+```
+
 ## skills.json
 
 Your skill manifest. Commit it to your repo and share with your team.

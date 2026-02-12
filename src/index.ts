@@ -1,6 +1,7 @@
 import { helpCommand } from "./commands/help.js";
 import { addCommand } from "./commands/add.js";
 import { installCommand } from "./commands/install.js";
+import { inheritCommand } from "./commands/inherit.js";
 
 export async function main(): Promise<void> {
   const args = process.argv.slice(2);
@@ -13,6 +14,14 @@ export async function main(): Promise<void> {
       break;
     case "install":
       await installCommand(commandArgs);
+      break;
+    case "list":
+    case "find":
+    case "remove":
+    case "check":
+    case "update":
+    case "init":
+      await inheritCommand(command, commandArgs);
       break;
     case "help":
     case "-h":
